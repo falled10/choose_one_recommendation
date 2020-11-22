@@ -13,6 +13,7 @@ uvloop = "^0.14.0"
 httptools = "^0.1.1"
 environs = "^9.2.0"
 autopep8 = "^1.5.4"
+py2neo = "^2020.1.1"
 
 [tool.poetry.dev-dependencies]
 

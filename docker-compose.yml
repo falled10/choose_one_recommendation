@@ -10,6 +10,19 @@ services:
     volumes:
       - .:/usr/src/app
     env_file: .env
+    depends_on:
+      - neo4j
+  neo4j:
+    container_name: neo4j
+    image: neo4j:latest
+    env_file: .env
+    volumes:
+      - ./plugins:/plugins
+      - ./data:/data
+      - ./import:/import
+    ports:
+      - 7474:7474
+      - 7687:7687
   nginx:
     image: nginx:latest
     restart: always
@@ -23,4 +36,3 @@ services:
       - ./media:/app/media
     depends_on:
       - recommendation_api
-~                         

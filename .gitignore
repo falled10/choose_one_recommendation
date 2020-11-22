@@ -2,3 +2,8 @@
 .idea/
 venv/
 .env
+.data
+data/
+import/
+plugins
+__pycache__
