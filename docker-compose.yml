@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  recommendation_api:
+    container_name: recommendation_api
+    build:
+      context: .
+    ports:
+      - 8002:8002
+    volumes:
+      - .:/usr/src/app
+    env_file: .env
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports:
+      - 80:80
+    env_file:
+      - .env
+    volumes:
+      - ./.conf/nginx:/etc/nginx/conf.d
+      - ./assets:/app/assets
+      - ./media:/app/media
+    depends_on:
+      - recommendation_api
+~                         
