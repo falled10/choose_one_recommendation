@@ -1,15 +1,16 @@
-from pydantic import BaseModel
 from typing import Optional
 
+from core.schemas import CamelModel
 
-class UserSchema(BaseModel):
+
+class UserSchema(CamelModel):
     user_id: int
 
     class Config:
         orm_mode = True
 
 
-class PollSchema(BaseModel):
+class PollSchema(CamelModel):
     poll_id: int
     image: Optional[str] = None
     title: str
@@ -17,3 +18,8 @@ class PollSchema(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class RelationSchema(CamelModel):
+    poll: PollSchema
+    user: UserSchema
