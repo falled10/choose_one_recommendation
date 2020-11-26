@@ -1,6 +1,6 @@
 from py2neo import Relationship
 
-from api.recommendations.schemas import UserSchema, PollSchema, RelationSchema
+from api.recommendations.schemas import UserSchema, PollSchema
 from api.recommendations.models import User, Poll
 from core.database import graph
 
