@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.3.0
+
+### Added
+
+* Logger `loguru` to project
+
 ## v0.2.0
 
 ### Changed
