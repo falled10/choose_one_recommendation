@@ -1,5 +1,4 @@
 from celery import shared_task
-from pydantic import ValidationError
 
 from api.recommendations.schemas import PollSchema, UserSchema
 from api.recommendations.services import get_or_create_user, get_or_create_poll
