@@ -35,13 +35,6 @@ def get_or_create_poll(user: User, poll_data: PollSchema):
     return poll
 
 
-def create_relation(poll_data: PollSchema, user_data: UserSchema) -> RelationSchema:
-    user = get_or_create_user(user_data)
-    poll = get_or_create_poll(user, poll_data)
-    return RelationSchema(poll=PollSchema.from_orm(poll),
-                          user=UserSchema.from_orm(user))
-
-
 def get_recommended_polls(user_id: int) -> list:
     query = "MATCH (u:User {user_id: $user_id})"\
             "-[:PASSED]->(:Poll)<-[:PASSED]-(o:User) "\
