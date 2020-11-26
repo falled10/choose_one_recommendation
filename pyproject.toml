@@ -17,6 +17,8 @@ py2neo = "^2020.1.1"
 typing-extensions = "^3.7.4"
 pyhumps = "^1.6.1"
 flake8 = "^3.8.4"
+celery = "^5.0.2"
+redis = "^3.5.3"
 
 [tool.poetry.dev-dependencies]
 
