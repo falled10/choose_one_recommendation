@@ -12,6 +12,16 @@ services:
     env_file: .env
     depends_on:
       - neo4j
+  celery:
+    build: .
+    command: poetry run celery -A core worker -l INFO
+    env_file:
+      - .env
+    entrypoint: ""
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - recommendation_api
   neo4j:
     container_name: neo4j
     image: neo4j:latest

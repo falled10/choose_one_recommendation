@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.4.0
+
+### Added
+
+* Celery to docker-compose
+
 ## v0.3.0
 
 ### Added
