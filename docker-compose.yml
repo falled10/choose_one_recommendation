@@ -17,6 +17,7 @@ services:
     command: poetry run celery -A core worker -l INFO
     env_file:
       - .env
+    entrypoint: /usr/src/app/entrypoint_celery.sh
     volumes:
       - .:/usr/src/app
     depends_on:
