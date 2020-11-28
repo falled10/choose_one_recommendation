@@ -21,7 +21,6 @@ services:
     volumes:
       - .:/usr/src/app
     depends_on:
-      - recommendation_api
       - neo4j
   neo4j:
     container_name: neo4j
