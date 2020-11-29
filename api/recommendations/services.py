@@ -28,8 +28,8 @@ def get_or_create_poll(user: User, poll_data: PollSchema):
         tx.create(poll)
     query = "RETURN EXISTS("\
             "(:User {user_id: $user_id})-"\
-            "[:PASSED]-(:Poll {poll_id: $poll_id}))"
-    relation_exists = graph.run(query, user_id=user.user_id, poll_id=poll_data.poll_id).evaluate()
+            "[:PASSED]-(:Poll {id: $poll_id}))"
+    relation_exists = graph.run(query, user_id=user.user_id, poll_id=poll_data.id).evaluate()
     if not relation_exists:
         tx.create(Relationship(user.__node__, 'PASSED', poll.__node__))
         tx.create(Relationship(poll.__node__, 'PASSED_BY', user.__node__))

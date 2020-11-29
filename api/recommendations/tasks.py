@@ -13,6 +13,6 @@ def create_relation(poll_data: dict, user_data: dict):
         user = get_or_create_user(user_data)
         poll = get_or_create_poll(user, poll_data)
         celery_logger.info(f"Created relation between poll with id "
-                           f"{poll.poll_id} and user with id {user.user_id}")
+                           f"{poll.id} and user with id {user.user_id}")
     except Exception as e:
         celery_logger.error(e)
