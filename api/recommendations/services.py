@@ -15,7 +15,7 @@ def get_or_create_user(user_data: UserSchema):
 
 
 def get_or_create_poll(user: User, poll_data: PollSchema):
-    poll = Poll.match(graph, poll_data.poll_id).first()
+    poll = Poll.match(graph, poll_data.id).first()
     tx = graph.begin()
     if not poll:
         poll = Poll()
