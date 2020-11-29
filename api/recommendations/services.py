@@ -19,10 +19,12 @@ def get_or_create_poll(user: User, poll_data: PollSchema):
     tx = graph.begin()
     if not poll:
         poll = Poll()
-        poll.poll_id = poll_data.poll_id
+        poll.id = poll_data.id
         poll.title = poll_data.title
         poll.image = poll_data.image
         poll.description = poll_data.description
+        poll.slug = poll_data.slug
+        poll.media_type = poll_data.media_type
         tx.create(poll)
     query = "RETURN EXISTS("\
             "(:User {user_id: $user_id})-"\

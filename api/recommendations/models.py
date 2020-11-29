@@ -2,13 +2,15 @@ from py2neo.ogm import GraphObject, Property, RelatedFrom, RelatedTo
 
 
 class Poll(GraphObject):
-    __primarykey__ = "poll_id"
+    __primarykey__ = "id"
 
-    poll_id = Property()
+    id = Property()
 
     image = Property()
     title = Property()
     description = Property()
+    slug = Property()
+    media_type = Property()
 
     users = RelatedFrom("User", "PASSED")
 
